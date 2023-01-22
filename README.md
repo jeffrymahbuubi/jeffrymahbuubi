@@ -7,7 +7,6 @@ Born and raised in 🇮🇩 Indonesia. Currently studying overseas in 🇹🇼 T
 </p>
 
 <h2 style="font-family:'Kanit', sans-serif;font-weight:600">Contact Me</h2>
-<hr style="margin-bottom:1rem">
 <div style="display:flex;gap:0.3rem;justify-content:flex-start;margin-bottom:0.8rem">
 <a href="https://linkedin/in/jeffrymahbuubi"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 
@@ -21,8 +20,6 @@ Born and raised in 🇮🇩 Indonesia. Currently studying overseas in 🇹🇼 T
 </div>
 
 <h2 style="font-family:'Kanit', sans-serif;font-weight:600">Showcase Achievment</h2>
-<hr style="margin-bottom:1rem">
-
 <div style="display:flex;gap:0.3rem;justify-content:flex-start;margin-bottom:0.8rem">
 <a href="https://www.kaggle.com/aunuunjeffry"><img src=" https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white"/></a>
 
@@ -30,8 +27,6 @@ Born and raised in 🇮🇩 Indonesia. Currently studying overseas in 🇹🇼 T
 </div>
 
 <h2 style="font-family:'Kanit', sans-serif;font-weight:600">Technologies Used</h2>
-<hr style="margin-bottom:1rem">
-
 <div style="display:flex;gap:0.3rem;justify-content:flex-start;margin-bottom:0.8rem">
 <img src=" https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
 
