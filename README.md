@@ -31,7 +31,8 @@
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-<div style="margin-bottom:5rem"></div>
+<br>
+<br>
 
 <div align="center">
 <img height="150" src = "https://github-readme-stats.vercel.app/api?username=jeffrymahbuubi&show_icons=true&theme=swift&include_all_commits=true&count_private=true" />
