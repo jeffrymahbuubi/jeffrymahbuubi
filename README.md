@@ -6,7 +6,7 @@
 
 <h2 style="font-family:'Kanit', sans-serif;font-weight:600">Contact Me</h2>
 
-<div style="display:flex;gap:0.3rem;justify-content:flex-start;margin-bottom:0.8rem">
+<div style="display:flex;gap:0.3rem;justify-content:flex-start;margin-bottom:0.8rem;flex-wrap:wrap">
 <a href="https://linkedin/in/jeffrymahbuubi"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 <a href="https://www.facebook.com/AunuunJeffry/"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
 <a href="https://www.instagram.com/jeffrymahbuubi/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
