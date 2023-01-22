@@ -17,7 +17,7 @@
 <h2 style="font-family:'Kanit', sans-serif;font-weight:600">Showcase Achievment</h2>
 
 <div style="display:flex;gap:0.3rem;justify-content:flex-start;margin-bottom:0.8rem">
-<a href="https://www.kaggle.com/aunuunjeffry"><img src=" https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white"/></a>
+<a href="https://www.kaggle.com/aunuunjeffry"><img src=" https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white"/></a>
 <a href="https://leetcode.com/jeffrymahbuubi/"><img src="https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black"/></a>
 </div>
 
