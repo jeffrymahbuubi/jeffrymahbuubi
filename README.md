@@ -34,6 +34,7 @@
 <br>
 <br>
 
+<h2 style="font-family:'Kanit', sans-serif;font-weight:600">Activity</h2>
 <div align="center">
 <img height="150" src = "https://github-readme-stats.vercel.app/api?username=jeffrymahbuubi&show_icons=true&theme=swift&include_all_commits=true&count_private=true" />
 <img height="150" src = "https://github-readme-stats.vercel.app/api/top-langs/?username=jeffrymahbuubi&layout=compact&langs_count=8&theme=swift" />
