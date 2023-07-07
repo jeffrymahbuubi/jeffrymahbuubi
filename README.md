@@ -77,8 +77,8 @@
   <summary>⚡ Recent GitHub Activity</summary>
   
 <!--START_SECTION:activity-->
-1. 🎉 Finished COVID-19 Chest X-Ray Classification Project [#1](https://github.com/jeffrymahbuubi/COVID-19-Chest-X-Ray-Classification) in [jeffrymahbuubi/COVID-19-Chest-X-Ray-Classification](https://github.com/jeffrymahbuubi/COVID-19-Chest-X-Ray-Classification)
-2. 🤖 Deploying BERT Hate Speech Classification Project in [jeffrymahbuubi/BERT-Hate-Speech-Classification](https://huggingface.co/spaces/jeffrymahbuubi/bert-advanced-cnn-hate-speech-classification)
+1. 🎉 Finished COVID-19 Chest X-Ray Classification Project [#2019](https://github.com/jeffrymahbuubi/COVID-19-Chest-X-Ray-Classification) in [jeffrymahbuubi/COVID-19-Chest-X-Ray-Classification](https://github.com/jeffrymahbuubi/COVID-19-Chest-X-Ray-Classification)
+2. 🤖 Deploying BERT Hate Speech Classification Project [#2019](https://huggingface.co/spaces/jeffrymahbuubi/bert-advanced-cnn-hate-speech-classification) in [jeffrymahbuubi/BERT-Hate-Speech-Classification](https://huggingface.co/spaces/jeffrymahbuubi/bert-advanced-cnn-hate-speech-classification)
 <!--END_SECTION:activity-->
 
 </details>
