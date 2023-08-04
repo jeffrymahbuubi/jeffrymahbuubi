@@ -43,7 +43,7 @@
 
 ## I'm a Student, Developer, and Tech Enthusiast!
 
-- 🇹🇼 I'm in Taiwan working full-time as Research Assistant in WTMH\ (Wearable Technology Medical Health) Lab NCKU
+- 🇹🇼 I'm in Taiwan and currently working full-time as Research Assistant in WTMH <br> (Wearable Technology Medical Health) Lab NCKU under Professor [Che-Wei Lin](https://researchoutput.ncku.edu.tw/en/persons/che-wei-lin)
 - 🌟 Starting to learn about web development since 2022, and still learning
 - 👨‍💼 A full-time research assistant in NCKU and part-time web developer
 - 📽️ My project consist mainly on artificial intelligence and web development
