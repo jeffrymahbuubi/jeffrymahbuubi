@@ -43,12 +43,9 @@
 
 ## I'm a Student, Developer, and Tech Enthusiast!
 
-- 🇹🇼 I'm in Taiwan and currently working full-time as Research Assistant in WTMH <br> (Wearable Technology Medical Health) Lab NCKU under Professor [Che-Wei Lin](https://researchoutput.ncku.edu.tw/en/persons/che-wei-lin)
-- 🌟 Starting to learn about web development since 2022, and still learning
-- 👨‍💼 A full-time research assistant in NCKU and part-time web developer
-- 📽️ My project consist mainly on artificial intelligence and web development
-- 🥅 2023 Goals: Seeking for part time job in web development
-
+- 🇹🇼 Based in Taiwan, working full-time as a Research Assistant at the Wearable Technology and Medical Health (WTMH) Lab, NCKU, under Professor Che-Wei Lin
+- 👨‍💼 Focused on developing machine learning and deep learning models for healthcare data analysis.
+  
 ### Connect with me:
 
 [![website](./img/globe-light.svg)](https://jeffrymahbuubi.com)&nbsp;&nbsp;
