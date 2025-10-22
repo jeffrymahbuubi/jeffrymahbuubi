@@ -41,8 +41,6 @@
 
 # Hi there, I'm Jeffry 👋
 
-## I'm a Student, Developer, and Tech Enthusiast!
-
 - 🇹🇼 Based in Taiwan, working full-time as a Research Assistant at the Wearable Technology and Medical Health (WTMH) Lab, NCKU, under Professor Che-Wei Lin
 - 👨‍💼 Focused on developing machine learning and deep learning models for healthcare data analysis.
   
