@@ -308,10 +308,6 @@ class RenderTests(unittest.TestCase):
         )
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class SelfHostedProfileTests(unittest.TestCase):
     LIGHT_RAMP = {"#eff2f5", "#aceebb", "#4ac26b", "#2da44e", "#116329"}
     DARK_RAMP = {"#151b23", "#033a16", "#196c2e", "#2ea043", "#56d364"}
@@ -355,3 +351,7 @@ class SelfHostedProfileTests(unittest.TestCase):
         for theme in (light, dark):
             for render in (render_overview_card, render_activity_card, render_language_card):
                 self.assertNotIn("secret-repo-zzz", render(stats, theme))
+
+
+if __name__ == "__main__":
+    unittest.main()

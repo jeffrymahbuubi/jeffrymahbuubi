@@ -14,6 +14,7 @@ from profile_stats.collect import (
     collect_account_stats,
     collect_repo_stats,
 )
+from profile_stats.github_api import GitHubApiError
 from profile_stats.models import ContributionDay
 
 
@@ -303,6 +304,40 @@ class PublicContributionTests(unittest.TestCase):
         with patch.object(client, "graphql", side_effect=RuntimeError("API unavailable")):
             with self.assertRaisesRegex(RuntimeError, "API unavailable"):
                 _collect_public_contribution_days(client, "trsdn", self.now, self.days)
+
+
+class IncludePrivateTests(unittest.TestCase):
+    @staticmethod
+    def client(viewer="trsdn", private=True):
+        class Client(FakeClient):
+            def graphql(self, query, variables):
+                response = super().graphql(query, variables)
+                if "AccountProfile" in query:
+                    response["viewer"] = {"login": viewer}
+                elif "AccountRepos" in query and private:
+                    secret = repo_node("trsdn/secret")
+                    secret["isPrivate"] = True
+                    response["user"]["repositories"]["nodes"].append(secret)
+                return response
+
+        return Client()
+
+    def test_no_private_repos_visible_fails(self):
+        with self.assertRaisesRegex(GitHubApiError, "private repositories"):
+            collect_account_stats(self.client(private=False), "trsdn", include_private=True)
+
+    def test_token_for_other_account_fails(self):
+        with self.assertRaisesRegex(GitHubApiError, "different account"):
+            collect_account_stats(self.client(viewer="someone"), "trsdn", include_private=True)
+
+    def test_matching_viewer_with_private_repo_succeeds(self):
+        stats = collect_account_stats(self.client(viewer="TRSDN"), "trsdn", include_private=True)
+        self.assertEqual(len(stats.repos), 2)
+        self.assertEqual(stats.total_commits, 84)
+
+    def test_checks_skipped_when_private_not_requested(self):
+        stats = collect_account_stats(self.client(viewer="someone", private=False), "trsdn")
+        self.assertEqual(len(stats.repos), 1)
 
 
 if __name__ == "__main__":

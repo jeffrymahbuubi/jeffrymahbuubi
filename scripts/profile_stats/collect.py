@@ -7,7 +7,7 @@ from collections import defaultdict
 from datetime import UTC, date, datetime, timedelta
 from typing import Any
 
-from .github_api import GitHubClient
+from .github_api import GitHubApiError, GitHubClient
 from .languages import color_for
 from .models import AccountStats, ContributionDay, LanguageShare, ReleaseStats, RepoStats
 
@@ -117,6 +117,7 @@ def collect_repo_stats(
 
 _ACCOUNT_PROFILE_QUERY = """
 query AccountProfile($login: String!, $from: DateTime!, $to: DateTime!) {
+  viewer { login }
   user(login: $login) {
     login
     followers { totalCount }
@@ -334,10 +335,19 @@ def collect_account_stats(
     total_repos = 0
     include_set = set(include or [])
     exclude_set = set(exclude or [])
-    profile = client.graphql(
+    profile_response = client.graphql(
         _ACCOUNT_PROFILE_QUERY,
         {"login": username, "from": since.isoformat(), "to": generated_at.isoformat()},
-    )["user"]
+    )
+    profile = profile_response["user"]
+    if include_private:
+        viewer = ((profile_response.get("viewer") or {}).get("login") or "").lower()
+        if viewer != username.lower():
+            raise GitHubApiError(
+                f"STATS_TOKEN belongs to a different account ({viewer or 'unknown'}), "
+                f"not {username}; private repositories cannot be included."
+            )
+    saw_private = False
     followers = int((profile.get("followers") or {}).get("totalCount") or 0)
     for week in profile["contributionsCollection"]["contributionCalendar"]["weeks"]:
         for day in week["contributionDays"]:
@@ -348,8 +358,10 @@ def collect_account_stats(
         data = client.graphql(_ACCOUNT_REPOS_QUERY, {"login": username, "cursor": cursor})["user"]
         page = data["repositories"]
         for node in page["nodes"]:
-            if node.get("isPrivate") and not include_private:
-                continue
+            if node.get("isPrivate"):
+                saw_private = True
+                if not include_private:
+                    continue
             # Counted before the fork and include/exclude filters, so it stays
             # comparable to the repository count GitHub shows on the profile.
             total_repos += 1
@@ -364,6 +376,12 @@ def collect_account_stats(
         if not page["pageInfo"]["hasNextPage"]:
             break
         cursor = page["pageInfo"]["endCursor"]
+    if include_private and not saw_private:
+        raise GitHubApiError(
+            "include_private is enabled but STATS_TOKEN cannot read any private "
+            "repositories. Grant the fine-grained token access to All repositories "
+            "with Metadata, Contents, Issues and Pull requests read."
+        )
     language_bytes: dict[str, int] = defaultdict(int)
     language_colors: dict[str, str] = {}
     for repo in repos:
