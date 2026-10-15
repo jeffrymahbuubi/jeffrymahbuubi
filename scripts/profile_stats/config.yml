@@ -1,6 +1,6 @@
-username: trsdn
+username: jeffrymahbuubi
 top_n: 12
-include_private: false
+include_private: true
 repo:
   include: []
   exclude: []
@@ -11,11 +11,16 @@ cards:
     - overview
     - activity
     - language
-    - momentum
 themes:
   light:
-    accent: "#6d5dfc"
-    accent2: "#06b6d4"
+    panel: "#ffffff"
+    text: "#1f2328"
+    muted: "#59636e"
+    accent: "#116329"
+    track: "#eff2f5"
   dark:
-    accent: "#a78bfa"
-    accent2: "#22d3ee"
+    panel: "#0d1117"
+    text: "#f0f6fc"
+    muted: "#9198a1"
+    accent: "#56d364"
+    track: "#151b23"

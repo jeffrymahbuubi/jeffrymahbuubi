@@ -53,7 +53,7 @@ def render_overview_card(stats: AccountStats, theme: Theme) -> str:
     body = [defs(theme), card_bg(width, height, theme)]
     body.append(f'<text x="28" y="44" class="title">{esc(stats.username)} account overview</text>')
     body.append(
-        '<text x="28" y="68" class="subtitle">Public GitHub activity. Repositories reads sources / all; the difference is forks.</text>'
+        '<text x="28" y="68" class="subtitle">GitHub activity. Repositories reads sources / all; the difference is forks.</text>'
     )
     metrics = [
         (28, rows[0], "Total commits", n(stats.total_commits)),
@@ -73,15 +73,14 @@ def render_overview_card(stats: AccountStats, theme: Theme) -> str:
 
 
 def _heat_levels(theme: Theme) -> tuple[str, ...]:
-    """A single-hue ramp.
+    """A single-hue green ramp.
 
-    A multi-hue scale cannot be ordered by eye: nothing tells a reader that
-    green outranks purple. Keeping one hue and varying only its lightness makes
-    the busiest days obvious without a legend lookup.
+    A multi-hue scale cannot be ordered by eye. Keeping one hue and varying only
+    its lightness makes the busiest days obvious without a legend lookup.
     """
     if theme.name == "dark":
-        return (theme.track, "#3b3170", "#5b4ac4", "#8468ee", theme.accent)
-    return (theme.track, "#ddd6fe", "#b4a2fb", "#8a72f9", theme.accent)
+        return (theme.track, "#033a16", "#196c2e", "#2ea043", theme.accent)
+    return (theme.track, "#aceebb", "#4ac26b", "#2da44e", theme.accent)
 
 
 def _heat_color(count: int, theme: Theme) -> str:

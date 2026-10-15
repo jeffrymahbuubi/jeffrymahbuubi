@@ -15,7 +15,12 @@ class GitHubApiError(RuntimeError):
 
 class GitHubClient:
     def __init__(self, token: str | None = None, *, timeout: int = 20, retries: int = 4) -> None:
-        self.token = token or os.getenv("STATS_TOKEN") or os.getenv("GITHUB_TOKEN")
+        self.token = token or os.getenv("STATS_TOKEN")
+        if not self.token:
+            raise GitHubApiError(
+                "STATS_TOKEN is not set (or is empty). A personal access token is required; "
+                "refusing to fall back to unauthenticated or public-only data."
+            )
         self.timeout = timeout
         self.retries = retries
         import requests
@@ -25,11 +30,10 @@ class GitHubClient:
             {
                 "Accept": "application/vnd.github+json",
                 "X-GitHub-Api-Version": "2022-11-28",
-                "User-Agent": "trsdn-profile-stats",
+                "User-Agent": "jeffrymahbuubi-profile-stats",
             }
         )
-        if self.token:
-            self.session.headers["Authorization"] = f"Bearer {self.token}"
+        self.session.headers["Authorization"] = f"Bearer {self.token}"
 
     def graphql(self, query: str, variables: dict[str, Any] | None = None) -> dict[str, Any]:
         payload = {"query": query, "variables": variables or {}}

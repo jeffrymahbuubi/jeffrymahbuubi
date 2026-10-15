@@ -85,7 +85,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--config", help="Path to YAML config. Defaults to scripts/profile_stats/config.yml."
     )
-    parser.add_argument("--token", help="GitHub token. Defaults to STATS_TOKEN or GITHUB_TOKEN.")
+    parser.add_argument("--token", help="GitHub token. Defaults to STATS_TOKEN; there is no fallback.")
     sub = parser.add_subparsers(dest="command", required=True)
     repo = sub.add_parser("repo", help="Render cards for one repository.")
     repo.add_argument(

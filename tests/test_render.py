@@ -310,3 +310,48 @@ class RenderTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SelfHostedProfileTests(unittest.TestCase):
+    LIGHT_RAMP = {"#eff2f5", "#aceebb", "#4ac26b", "#2da44e", "#116329"}
+    DARK_RAMP = {"#151b23", "#033a16", "#196c2e", "#2ea043", "#56d364"}
+
+    def themes(self):
+        from profile_stats.config import load_config
+        from profile_stats.render.theme import from_config
+
+        config = load_config(Path(__file__).resolve().parent.parent / "scripts/profile_stats/config.yml")
+        return from_config("light", config), from_config("dark", config)
+
+    def heat_fills(self, svg):
+        import re
+
+        return set(re.findall(r'<rect[^>]*class="[^"]*"?[^>]*fill="(#[0-9a-fA-F]{6})"><title>', svg)) | set(
+            re.findall(r'fill="(#[0-9a-fA-F]{6})"><title>\d{4}-', svg)
+        )
+
+    def test_activity_heat_cells_use_green_ramps(self):
+        light, dark = self.themes()
+        stats = crowded_account_stats()
+        light_fills = self.heat_fills(render_activity_card(stats, light))
+        dark_fills = self.heat_fills(render_activity_card(stats, dark))
+        self.assertTrue(light_fills)
+        self.assertTrue(light_fills <= self.LIGHT_RAMP, light_fills)
+        self.assertTrue(dark_fills <= self.DARK_RAMP, dark_fills)
+        self.assertIn("#eff2f5", light_fills)
+        self.assertIn("#116329", light_fills)
+        self.assertIn("#56d364", dark_fills)
+
+    def test_overview_does_not_claim_public_only(self):
+        light, _ = self.themes()
+        self.assertNotIn("Public", render_overview_card(account_stats(), light))
+
+    def test_private_repo_name_never_rendered(self):
+        light, dark = self.themes()
+        private = replace(
+            repo_stats(), name="secret-repo-zzz", full_name="trsdn/secret-repo-zzz", is_private=True
+        )
+        stats = replace(account_stats(), repos=[private, repo_stats()])
+        for theme in (light, dark):
+            for render in (render_overview_card, render_activity_card, render_language_card):
+                self.assertNotIn("secret-repo-zzz", render(stats, theme))

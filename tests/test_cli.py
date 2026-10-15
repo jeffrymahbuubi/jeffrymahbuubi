@@ -27,20 +27,19 @@ class AccountCliTests(unittest.TestCase):
             main(args)
         return collect.call_args.kwargs
 
-    def test_defaults_generate_momentum_not_repository_table_in_both_themes(self):
+    def test_repo_config_generates_overview_activity_language_in_both_themes(self):
         with TemporaryDirectory() as directory:
             out = Path(directory)
             options = self.render(out)
             expected = {
                 f"{name}-card{suffix}.svg"
-                for name in ("overview", "activity", "language", "momentum")
+                for name in ("overview", "activity", "language")
                 for suffix in ("", "-dark")
             }
             self.assertEqual({path.name for path in out.iterdir()}, expected)
-            self.assertTrue(options["include_momentum"])
+            self.assertFalse(options["include_momentum"])
             for path in out.iterdir():
                 ElementTree.fromstring(path.read_text())
-            self.assertIn("Change: +30 (+50.0%)", (out / "momentum-card.svg").read_text())
 
     def test_explicit_legacy_cards_do_not_collect_momentum(self):
         with TemporaryDirectory() as directory:

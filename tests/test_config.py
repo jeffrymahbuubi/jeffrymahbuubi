@@ -6,7 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
-from profile_stats.config import DEFAULT_CONFIG, load_config
+from profile_stats.config import load_config
 
 
 class ConfigTests(unittest.TestCase):
@@ -46,9 +46,10 @@ class ConfigTests(unittest.TestCase):
 
     def test_default_config_loads_without_third_party_yaml(self) -> None:
         cfg = load_config("scripts/profile_stats/config.yml")
-        self.assertEqual(cfg["cards"]["account"][0], "overview")
+        self.assertEqual(cfg["username"], "jeffrymahbuubi")
+        self.assertTrue(cfg["include_private"])
+        self.assertEqual(cfg["cards"]["account"], ["overview", "activity", "language"])
         self.assertEqual(cfg["repo"]["include"], [])
-        self.assertEqual(cfg["cards"]["account"], DEFAULT_CONFIG["cards"]["account"])
         self.assertNotIn("repos-table", cfg["cards"]["account"])
 
     def test_optional_cards_and_empty_selection_remain_supported(self) -> None:
