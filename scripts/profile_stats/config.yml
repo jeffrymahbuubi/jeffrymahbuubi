@@ -1,0 +1,21 @@
+username: trsdn
+top_n: 12
+include_private: false
+repo:
+  include: []
+  exclude: []
+cards:
+  repo:
+    - repo-card
+  account:
+    - overview
+    - activity
+    - language
+    - momentum
+themes:
+  light:
+    accent: "#6d5dfc"
+    accent2: "#06b6d4"
+  dark:
+    accent: "#a78bfa"
+    accent2: "#22d3ee"
