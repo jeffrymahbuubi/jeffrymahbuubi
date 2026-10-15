@@ -1,0 +1,26 @@
+username: jeffrymahbuubi
+top_n: 12
+include_private: true
+repo:
+  include: []
+  exclude: []
+cards:
+  repo:
+    - repo-card
+  account:
+    - overview
+    - activity
+    - language
+themes:
+  light:
+    panel: "#ffffff"
+    text: "#1f2328"
+    muted: "#59636e"
+    accent: "#116329"
+    track: "#eff2f5"
+  dark:
+    panel: "#0d1117"
+    text: "#f0f6fc"
+    muted: "#9198a1"
+    accent: "#56d364"
+    track: "#151b23"
