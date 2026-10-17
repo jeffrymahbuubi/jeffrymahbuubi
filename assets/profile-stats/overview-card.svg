@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="266" viewBox="0 0 820 266" role="img">
+<defs>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#94a3b8" flood-opacity="0.16"/>
+  </filter>
+  <style>
+    .title { font: 700 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #1f2328; }
+    .subtitle { font: 500 12px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #59636e; }
+    .label { font: 600 11px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #59636e; text-transform: uppercase; letter-spacing: .06em; }
+    .value { font: 700 17px ui-monospace,SFMono-Regular,Menlo,monospace; fill: #1f2328; }
+    .small { font: 500 11px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #59636e; }
+    .tiny { font: 500 10px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #59636e; }
+    .mono { font: 650 12px ui-monospace,SFMono-Regular,Menlo,monospace; fill: #1f2328; }
+  </style>
+</defs><rect x="1" y="1" width="818" height="264" rx="12" fill="#ffffff" stroke="#dbe3ef" filter="url(#shadow)"/><text x="28" y="44" class="title">jeffrymahbuubi account overview</text><text x="28" y="68" class="subtitle">GitHub activity. Repositories reads sources / all; the difference is forks.</text><text x="28" y="116" class="label">Total commits</text><text x="28" y="140" class="value">1.0k</text><text x="188" y="116" class="label">Stars</text><text x="188" y="140" class="value">8</text><text x="328" y="116" class="label">Merged PRs</text><text x="328" y="140" class="value">2</text><text x="488" y="116" class="label">Issues</text><text x="488" y="140" class="value">3</text><text x="638" y="116" class="label">Reviews</text><text x="638" y="140" class="value">6</text><text x="28" y="196" class="label">Followers</text><text x="28" y="220" class="value">19</text><text x="188" y="196" class="label">Active repos</text><text x="188" y="220" class="value">19</text><text x="328" y="196" class="label">Current streak</text><text x="328" y="220" class="value">3d</text><text x="488" y="196" class="label">Longest streak</text><text x="488" y="220" class="value">7d</text><text x="638" y="196" class="label">Repositories</text><text x="638" y="220" class="value">38 / 40</text><text x="792" y="250" text-anchor="end" class="small">auto-generated · 2026-10-17 20:41 UTC</text></svg>
